@@ -3,19 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>not chris' website</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
 </head>
 
 <body>
-    <img id="retro_overlay" src="img/retro_overlay.png"/>
-    <div id="log">
-        <pre id="log_section_0"></pre>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <div id="retro_overlay">
+        <div id="log">
+            <pre id="log_section_0"></pre>
+        </div>
+        <pre id="cmdline">></pre>
+        <form onsubmit="mobileCommand(); return false;">
+            <label>><input id="mobile_cmdline"></label>
+        </form>
+        <div id="bottom"></div>
     </div>
-	<pre id="cmdline">></pre>
-    <div id="bottom"></div>
-    <label><input hidden type="text" id="mobilehack"></label>
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
     <script src="js/index.js"></script>
 </body>
+
 </html>

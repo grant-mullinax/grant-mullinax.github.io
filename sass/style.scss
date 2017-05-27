@@ -1,0 +1,119 @@
+$screen-background:#121010;
+
+body {
+    background-color : #000000;
+    color : #ffffff;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+pre, label {
+    font-size : 20px;
+    padding : 0;
+    margin : 0;
+    line-height : 22px;
+}
+
+#mobile_cmdline {
+    background-color: #000000;
+    color: #000000;
+    height : 50px;
+}
+
+@keyframes wave {
+    0% {
+        transform: skew(0deg, 0deg);
+    }
+    25% {
+        transform: skew(-1deg, 0deg);
+    }
+    50% {
+        transform: skew(0deg, 0deg);
+    }
+    75% {
+        transform: skew(1deg, 0deg);
+    }
+    100% {
+        transform: skew(0deg, 0deg);
+    }
+}
+
+@keyframes turn-on {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes refresh-rate{
+    @for $i from 0 through 30{
+        #{percentage($i*(1/30))}{
+            opacity:random();
+        }
+    }
+}
+
+#retro_overlay{
+    background:$screen-background;
+    width:95%;
+    height:90%;
+    position:absolute;
+    overflow:auto;
+
+    content:"";
+    display:block;
+    left:2.5%;
+    right:2.5%;
+    top:5%;
+    bottom:5%;
+
+    animation:turn-on 3s;
+
+    &::before{
+        content:"";
+        position:fixed;
+        top:0;
+        left:0;
+        bottom:0;
+        right:0;
+        background:
+            linear-gradient(transparentize($screen-background,.8) 50%, transparentize(darken($screen-background,10),.5) 50%),
+            linear-gradient(90deg,transparentize(#ff0000,0.92),transparentize(#00ff00,0.95),transparentize(#0000ff,0.92));
+        z-index:10;
+        background-size:100% 2px, 3px 100%;
+        pointer-events:none;
+    }
+
+    &::after{
+        content:"";
+        position:fixed;
+        top:0;
+        left:0;
+        bottom:0;
+        right:0;
+        background:transparentize($screen-background,0.85);
+        opacity:0;
+        z-index:10;
+        pointer-events:none;
+        animation:refresh-rate 0.15s infinite;
+    }
+}
+
+a {
+    font-size : 35px;
+    text-decoration: none;
+    color : #76daff;
+    padding : 0;
+    margin : 0;
+    line-height : 40px;
+}
+
+

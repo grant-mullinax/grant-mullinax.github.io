@@ -1,0 +1,193 @@
+/* line 3, ../sass/style.scss */
+body {
+  background-color: #000000;
+  color: #ffffff;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+/* line 16, ../sass/style.scss */
+pre {
+  font-size: 20px;
+  padding: 0;
+  margin: 0;
+  line-height: 22px;
+}
+
+@keyframes wave {
+  0% {
+    transform: skew(0deg, 0deg);
+  }
+  25% {
+    transform: skew(-1deg, 0deg);
+  }
+  50% {
+    transform: skew(0deg, 0deg);
+  }
+  75% {
+    transform: skew(1deg, 0deg);
+  }
+  100% {
+    transform: skew(0deg, 0deg);
+  }
+}
+@keyframes turn-on {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes refresh-rate {
+  0% {
+    opacity: 0.5636088618;
+  }
+  3.3333333333% {
+    opacity: 0.4765342917;
+  }
+  6.6666666667% {
+    opacity: 0.4720757559;
+  }
+  10% {
+    opacity: 0.6914163574;
+  }
+  13.3333333333% {
+    opacity: 0.3650206124;
+  }
+  16.6666666667% {
+    opacity: 0.9840771591;
+  }
+  20% {
+    opacity: 0.6149494423;
+  }
+  23.3333333333% {
+    opacity: 0.7250884686;
+  }
+  26.6666666667% {
+    opacity: 0.3146080105;
+  }
+  30% {
+    opacity: 0.4305455897;
+  }
+  33.3333333333% {
+    opacity: 0.2733866968;
+  }
+  36.6666666667% {
+    opacity: 0.5490078229;
+  }
+  40% {
+    opacity: 0.3153914611;
+  }
+  43.3333333333% {
+    opacity: 0.5808256101;
+  }
+  46.6666666667% {
+    opacity: 0.5466848355;
+  }
+  50% {
+    opacity: 0.0283796573;
+  }
+  53.3333333333% {
+    opacity: 0.5017657665;
+  }
+  56.6666666667% {
+    opacity: 0.6710610141;
+  }
+  60% {
+    opacity: 0.0874774813;
+  }
+  63.3333333333% {
+    opacity: 0.6343339787;
+  }
+  66.6666666667% {
+    opacity: 0.8119612455;
+  }
+  70% {
+    opacity: 0.6407051033;
+  }
+  73.3333333333% {
+    opacity: 0.7246231262;
+  }
+  76.6666666667% {
+    opacity: 0.4491330276;
+  }
+  80% {
+    opacity: 0.1987410093;
+  }
+  83.3333333333% {
+    opacity: 0.8651970075;
+  }
+  86.6666666667% {
+    opacity: 0.3180061737;
+  }
+  90% {
+    opacity: 0.2328115708;
+  }
+  93.3333333333% {
+    opacity: 0.4140709873;
+  }
+  96.6666666667% {
+    opacity: 0.754096981;
+  }
+  100% {
+    opacity: 0.0653578066;
+  }
+}
+/* line 58, ../sass/style.scss */
+#retro_overlay {
+  background: #121010;
+  width: 95%;
+  height: 90%;
+  position: absolute;
+  overflow: auto;
+  content: "";
+  display: block;
+  left: 2.5%;
+  right: 2.5%;
+  top: 5%;
+  bottom: 5%;
+  animation: turn-on 3s;
+}
+/* line 74, ../sass/style.scss */
+#retro_overlay::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0.2) 50%, rgba(0, 0, 0, 0.5) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.08), rgba(0, 255, 0, 0.05), rgba(0, 0, 255, 0.08));
+  z-index: 10;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+}
+/* line 89, ../sass/style.scss */
+#retro_overlay::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(18, 16, 16, 0.15);
+  opacity: 0;
+  z-index: 10;
+  pointer-events: none;
+  animation: refresh-rate 0.15s infinite;
+}
+
+/* line 104, ../sass/style.scss */
+a {
+  font-size: 35px;
+  text-decoration: none;
+  color: #76daff;
+  padding: 0;
+  margin: 0;
+  line-height: 40px;
+}
