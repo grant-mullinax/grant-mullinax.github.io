@@ -12,11 +12,23 @@ body {
 }
 
 /* line 16, ../sass/style.scss */
-pre {
+img {
+  image-rendering: pixelated;
+}
+
+/* line 20, ../sass/style.scss */
+pre, label {
   font-size: 20px;
   padding: 0;
   margin: 0;
   line-height: 22px;
+}
+
+/* line 27, ../sass/style.scss */
+#mobile_cmdline {
+  background-color: #000000;
+  color: #000000;
+  height: 50px;
 }
 
 @keyframes wave {
@@ -40,122 +52,127 @@ pre {
   0% {
     opacity: 0;
   }
+  20% {
+    opacity: 0;
+  }
   100% {
     opacity: 1;
   }
 }
 @keyframes refresh-rate {
   0% {
-    opacity: 0.5636088618;
+    opacity: 0.8570966829;
   }
   3.3333333333% {
-    opacity: 0.4765342917;
+    opacity: 0.7207839783;
   }
   6.6666666667% {
-    opacity: 0.4720757559;
+    opacity: 0.9016510501;
   }
   10% {
-    opacity: 0.6914163574;
+    opacity: 0.1384358691;
   }
   13.3333333333% {
-    opacity: 0.3650206124;
+    opacity: 0.9161765974;
   }
   16.6666666667% {
-    opacity: 0.9840771591;
+    opacity: 0.3435162158;
   }
   20% {
-    opacity: 0.6149494423;
+    opacity: 0.669020624;
   }
   23.3333333333% {
-    opacity: 0.7250884686;
+    opacity: 0.2678914729;
   }
   26.6666666667% {
-    opacity: 0.3146080105;
+    opacity: 0.1508682554;
   }
   30% {
-    opacity: 0.4305455897;
+    opacity: 0.1769228081;
   }
   33.3333333333% {
-    opacity: 0.2733866968;
+    opacity: 0.7710074039;
   }
   36.6666666667% {
-    opacity: 0.5490078229;
+    opacity: 0.3833584438;
   }
   40% {
-    opacity: 0.3153914611;
+    opacity: 0.4421460143;
   }
   43.3333333333% {
-    opacity: 0.5808256101;
+    opacity: 0.4475306912;
   }
   46.6666666667% {
-    opacity: 0.5466848355;
+    opacity: 0.1057845312;
   }
   50% {
-    opacity: 0.0283796573;
+    opacity: 0.3350987508;
   }
   53.3333333333% {
-    opacity: 0.5017657665;
+    opacity: 0.0149911225;
   }
   56.6666666667% {
-    opacity: 0.6710610141;
+    opacity: 0.516493086;
   }
   60% {
-    opacity: 0.0874774813;
+    opacity: 0.1620286851;
   }
   63.3333333333% {
-    opacity: 0.6343339787;
+    opacity: 0.4818928803;
   }
   66.6666666667% {
-    opacity: 0.8119612455;
+    opacity: 0.4311794515;
   }
   70% {
-    opacity: 0.6407051033;
+    opacity: 0.3086748777;
   }
   73.3333333333% {
-    opacity: 0.7246231262;
+    opacity: 0.3122503414;
   }
   76.6666666667% {
-    opacity: 0.4491330276;
+    opacity: 0.5061366814;
   }
   80% {
-    opacity: 0.1987410093;
+    opacity: 0.7614679443;
   }
   83.3333333333% {
-    opacity: 0.8651970075;
+    opacity: 0.9181750527;
   }
   86.6666666667% {
-    opacity: 0.3180061737;
+    opacity: 0.6760711041;
   }
   90% {
-    opacity: 0.2328115708;
+    opacity: 0.2948019054;
   }
   93.3333333333% {
-    opacity: 0.4140709873;
+    opacity: 0.2141411844;
   }
   96.6666666667% {
-    opacity: 0.754096981;
+    opacity: 0.0697016846;
   }
   100% {
-    opacity: 0.0653578066;
+    opacity: 0.7643279287;
   }
 }
-/* line 58, ../sass/style.scss */
-#retro_overlay {
+/* line 71, ../sass/style.scss */
+#screen {
   background: #121010;
-  width: 95%;
-  height: 90%;
   position: absolute;
   overflow: auto;
+  overflow-x: hidden;
+  overflow-wrap: break-word;
   content: "";
   display: block;
+  width: 95%;
+  height: 90%;
   left: 2.5%;
   right: 2.5%;
   top: 5%;
   bottom: 5%;
-  animation: turn-on 3s;
+  animation: turn-on 4s;
 }
-/* line 74, ../sass/style.scss */
-#retro_overlay::before {
+/* line 92, ../sass/style.scss */
+#screen::before {
   content: "";
   position: fixed;
   top: 0;
@@ -167,8 +184,8 @@ pre {
   background-size: 100% 2px, 3px 100%;
   pointer-events: none;
 }
-/* line 89, ../sass/style.scss */
-#retro_overlay::after {
+/* line 107, ../sass/style.scss */
+#screen::after {
   content: "";
   position: fixed;
   top: 0;
@@ -182,7 +199,7 @@ pre {
   animation: refresh-rate 0.15s infinite;
 }
 
-/* line 104, ../sass/style.scss */
+/* line 122, ../sass/style.scss */
 a {
   font-size: 35px;
   text-decoration: none;
