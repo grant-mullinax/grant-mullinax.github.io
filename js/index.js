@@ -160,7 +160,7 @@ let commands =
         "img": new Command(
             function (args) {
                 appendImageToLogs(args[0],args[1],args[2]);
-            },"displays a stylized image from any url hosted on a compliant server </br>      (what does compliant entail? its complicated, if it doesnt work find another image)"
+            },"displays a stylized image from any website hosted on a server with no CORS restrictions"
         ),
 
         "trump": new Command(
