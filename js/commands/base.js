@@ -1,24 +1,12 @@
 define(
     [
-        './ui/log',
-        "./imgEffects/createRetroImage",
-        "./imgEffects/createAsciiImage"
+        "commands/command",
+        "ui/log"
     ],
     function(
-        log,
-        createRetroImage,
-        createAsciiImage
+        Command,
+        log
     ) {
-        class Command {
-            constructor(func, desc) {
-                this.func = func;
-                this.help = desc;
-            }
-
-            run(args) {
-                this.func(args);
-            }
-        }
 
         const commands = {
             "help": new Command(
@@ -70,24 +58,14 @@ define(
                 }, "displays a link to google"
             ),
 
-            "img": new Command(
-                function (args) {
-                    createRetroImage(args[0],args[1],args[2],log.append);
-                }, "displays a stylized image from any website hosted on a server with no CORS restrictions"
-            ),
-
-            "ascii-img": new Command(
-                function (args) {
-                    createAsciiImage(args[0], args[1], args[2], log.printLn);
-                }, "displays a stylized image from any website hosted on a server with no CORS restrictions"
-            ),
-
-            "trump": new Command(
+            "bonus-mode": new Command(
                 function () {
-                    createRetroImage("img/trump.jpg",4,60, log.append);
-                }, "displays a picture of the president of the united states"
-            ),
+                    if (!localStorage.bonusMode) {
+                        localStorage.bonusMode = true;
 
+                    }
+                }, "turns on bonus mode forever! bonus mode has whacky features!"
+            ),
 
             "hire-me": new Command(
                 function () {

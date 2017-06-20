@@ -1,17 +1,17 @@
 define(
     [
-        "./getReaderCanvas"
+        "util/imgEffects/getReaderCanvas"
     ],
     function (
         getReaderCanvas
     ) {
         const asciiGradient = ["─", "▒", "▓", "▓", "▀"];
 
-        return function(dir="img/trump.jpg", pxScale = 6, xtraWide = 'true',callback) {
+        return function(dir="img/trump.jpg", pxScale = 6 , xtraWide = 'true',callback) {
             getReaderCanvas(dir, function (readerCanvas,ctx) {
                 let data = ctx.getImageData(0, 0, readerCanvas.width, readerCanvas.height),
                     outWidth = Math.floor(readerCanvas.width / pxScale),
-                    outHeight = Math.floor(readerCanvas.height / pxScale);
+                    outHeight = Math.floor(readerCanvas.height / pxScale*2);
 
                 let out = "";
 

@@ -1,8 +1,8 @@
 define(
     [
-        "./ui/input",
-        "./ui/log",
-        "./commands"
+        "ui/input",
+        "ui/log",
+        "commands/base"
     ],
     function(
         input,
@@ -10,11 +10,11 @@ define(
         commands
     ) {
         /*
-         todo fix text index (rename too)
          todo make history add to end not front
          todo rename data in filter
-         todo make getdata function
          */
+
+
 
         commands.help.run('');
         log.printLn('');

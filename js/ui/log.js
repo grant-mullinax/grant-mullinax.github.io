@@ -1,40 +1,39 @@
 define(function() {
-    const
-        log = $("#log"),
-        bottom = $("#bottom")[0];
-
-    let logIndex = 0;
-
     const l = { //what do i name this? why doesn't 'this' work?
+        log: $("#log"),
+        bottom: $("#bottom")[0],
+
+        logIndex: 0,
+
         scrollToBottom: function () {
-            bottom.scrollIntoView();
+            this.bottom.scrollIntoView();
         },
 
         printLn: function (t) {
-            $("#log_section_" + logIndex).append(t + '<br />');
-            l.scrollToBottom();
+            $("#log_section_" + this.logIndex).append(t + '<br />');
+            this.scrollToBottom();
         },
 
         newLogSection: function () {
-            logIndex++;
-            log.append('<pre id="log_section_' + logIndex + '"></pre>');
-            l.scrollToBottom();
+            this.logIndex++;
+            this.append('<pre id="log_section_' + this.logIndex + '"></pre>');
+            this.scrollToBottom();
         },
 
         append: function (e) {
-            log.append(e);
-            l.newLogSection();
+            this.log.append(e);
+            this.newLogSection();
         },
 
         clearLogs: function () {
-            log.html('<pre id="log_section_0"></pre>');
-            logIndex = 0;
+            this.log.html('<pre id="log_section_0"></pre>');
+            this.logIndex = 0;
         },
 
         getElement: function(){
-            return log;
+            return this.log;
         }
-    }
+    };
 
     return l;
 });

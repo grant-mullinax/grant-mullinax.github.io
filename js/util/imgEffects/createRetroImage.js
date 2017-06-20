@@ -1,6 +1,6 @@
 define(
     [
-        "./getReaderCanvas"
+        "util/imgEffects/getReaderCanvas"
     ],
     function (
         getReaderCanvas
