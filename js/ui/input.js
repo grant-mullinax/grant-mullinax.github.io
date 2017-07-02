@@ -19,90 +19,90 @@ define(
 
             updateCmdText: function() {
                 let displayText;
-                if (this.blinking) {
-                    displayText = this.text;
+                if (c.blinking) {
+                    displayText = c.text;
                 } else {
-                    displayText = this.text.slice(0, this.index + 1) + "█" + this.text.slice(this.index + 2);
+                    displayText = c.text.slice(0, c.index + 1) + "█" + c.text.slice(c.index + 2);
                 }
-                this.cmdline.text(this.context + displayText);
+                c.cmdline.text(c.context + displayText);
             },
             handleKeyDown:function (e) { //desktop
                 switch (e.keyCode) {
                     case 13://enter
-                        if (this.text !== "") {
-                            log.printLn(">" + this.text);
+                        if (c.text !== "") {
+                            log.printLn(">" + c.text);
                         } else {
-                            this.text = this.commandHistory[0];
+                            c.text = c.commandHistory[0];
                         }
 
-                        let split = this.text.split(" "),
+                        let split = c.text.split(" "),
                             commandName = split[0].toLowerCase();
                         if (typeof commands[commandName] !== "undefined") {
                             split.shift();
                             commands[commandName].run(split);
                         }
 
-                        this.commandHistory.unshift(this.text);
-                        this.historyIndex = -1;
+                        c.commandHistory.unshift(c.text);
+                        c.historyIndex = -1;
 
-                        this.text = "";
-                        this.index = 0;
+                        c.text = "";
+                        c.index = 0;
                         break;
                     case 8://backspace
-                        if (this.index > 0) {
-                            this.text = this.text.slice(0, this.index-1) + this.text.slice(this.index);
-                            this.index--;
+                        if (c.index > 0) {
+                            c.text = c.text.slice(0, c.index-1) + c.text.slice(c.index);
+                            c.index--;
                         }
                         break;
                     case 46://delete
-                        this.text = this.text.slice(0, this.index) + this.text.slice(this.index + 1);
+                        c.text = c.text.slice(0, c.index) + c.text.slice(c.index + 1);
                         break;
                     case 37: //left
-                        if (this.index > 0)
-                            this.index--;
+                        if (c.index > 0)
+                            c.index--;
                         break;
                     case 38: //up
                         e.preventDefault();
-                        if (this.historyIndex < this.commandHistory.length - 1) {
-                            this.historyIndex++;
-                            this.text = this.commandHistory[this.historyIndex];
-                            this.index = this.text.length - 1;
-                            this.updateCmdText();
+                        if (c.historyIndex < c.commandHistory.length - 1) {
+                            c.historyIndex++;
+                            c.text = c.commandHistory[c.historyIndex];
+                            c.index = c.text.length - 1;
+                            c.updateCmdText();
                         }
                         break;
                     case 39: //right
-                        if (this.index < this.text.length)
-                            this.index++;
+                        if (c.index < c.text.length)
+                            c.index++;
                         break;
                     case 40: //down
                         e.preventDefault();
-                        if (this.historyIndex > 0) {
-                            this.historyIndex--;
-                            this.text = this.commandHistory[this.historyIndex];
-                            this.index = this.text.length - 1;
+                        if (c.historyIndex > 0) {
+                            c.historyIndex--;
+                            c.text = c.commandHistory[c.historyIndex];
+                            c.index = c.text.length - 1;
                         } else {
-                            this.text = "";
-                            this.index = -1;
+                            c.text = "";
+                            c.index = -1;
                         }
-                        this.updateCmdText();
+                        c.updateCmdText();
                         break;
                     default:
                         if (e.key.length === 1 && !e.ctrlKey) {
-                            this.index++;
-                            if (this.index === this.text.length) {
-                                this.text += e.key;
+                            c.index++;
+                            if (c.index === c.text.length) {
+                                c.text += e.key;
                             } else {
-                                this.text = this.text.slice(0, this.index) + e.key + this.text.slice(this.index);
+                                c.text = c.text.slice(0, c.index) + e.key + c.text.slice(c.index);
                             }
                         }
                 }
-                this.updateCmdText();
+                c.updateCmdText();
             },
             handlePaste: function (e) { //someone said this is bad?
                 let t = e.originalEvent.clipboardData.getData('Text');
-                this.text = this.text.slice(0, this.index) + t + this.text.slice(this.index);
-                this.index += t.length;
-                this.updateCmdText();
+                c.text = c.text.slice(0, c.index) + t + c.text.slice(c.index);
+                c.index += t.length;
+                c.updateCmdText();
             }
         };
 

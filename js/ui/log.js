@@ -16,16 +16,18 @@ define(function() {
 
         newLogSection: function () {
             this.logIndex++;
-            this.append('<pre id="log_section_' + this.logIndex + '"></pre>');
+            this.log.append('<pre id="log_section_' + this.logIndex + '"></pre>');
             this.scrollToBottom();
         },
 
         append: function (e) {
+            console.log(this.log);
             this.log.append(e);
             this.newLogSection();
         },
 
         clearLogs: function () {
+            console.log(this.log);
             this.log.html('<pre id="log_section_0"></pre>');
             this.logIndex = 0;
         },

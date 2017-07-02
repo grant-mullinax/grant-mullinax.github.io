@@ -42,7 +42,9 @@ define(
             ),
 
             "clear": new Command(
-                log.clearLogs(),
+                function () {
+                    log.clearLogs()
+                },
                 "clear the logs"
             ),
 
