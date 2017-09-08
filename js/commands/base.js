@@ -69,6 +69,12 @@ define(
                 }, "turns on bonus mode forever! bonus mode has whacky features!"
             ),
 
+            "has-grant-mullinax-opened-lifting-buddy-by-christopher-perkins-for-ios-today?": new Command(
+                function () {
+                    log.printLn("no.");
+                }, "has grant opened lifting buddy?"
+            ),
+
             "hire-me": new Command(
                 function () {
                     log.printLn("youve done it!");
